@@ -4,6 +4,12 @@ public interface ICarWashApplication {
     // GetServerList returns all found servers
     String[] GetServerList() throws Exception;
 
+    // SetCurrentServer just selects a current server
+    void SetCurrentServer(String ServerURI) throws Exception;
+
+    // GetCurrentServer just returns the current server
+    String GetCurrentServer() throws Exception;
+
     // Login returns a token, application will use the token to get the data
     String Login(String ServerURI, String Name, String Pass) throws Exception;
 
@@ -35,4 +41,10 @@ public interface ICarWashApplication {
 
     // LoggedIn returns true if client is logged in
     boolean LoggedIn() throws Exception;
+
+    // GetStation returns information about current station status, like money\program selected
+    StationStatus GetStationStatus(int StationID) throws Exception;
+
+    // TopUpStationMoney just adds some money to the station balance
+    void TopUpStationMoney(int StationID, int MoneyAmount) throws Exception;
 }
